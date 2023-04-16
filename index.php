@@ -1,4 +1,5 @@
 <?php
+// richiamo i componenti
 require_once __DIR__.'/models/ClassFilm.php';
 require_once __DIR__.'/server.php';
 ?>
@@ -14,15 +15,19 @@ require_once __DIR__.'/server.php';
 </head>
 
 <body>
-    <div>          
+    <div>       
         <?php
+            // per ogni film nella lista dei film
             foreach($film_list as $film){
-                echo '<ul>';                    
+                // creo un ul
+                echo '<ul>'; 
+                // per ogni chiave del film
                 foreach ($film as $key => $value) {
+                    // creo un li e ci stampo dentro il valore della chiave a seconda del formato che voglio visualizzare
                     echo '<li>';
                     if ($key == 'genere') {
                         foreach ($value as $genere) {
-                            echo $key, ' : ', $genere, ' - ';
+                            echo $genere, ' - ';
                         };
                     } elseif ($key == 'min'){
                         echo 'durata : ', $value, ' minuti';
